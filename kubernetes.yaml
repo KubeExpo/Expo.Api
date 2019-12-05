@@ -19,7 +19,7 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-      - image: gcr.io/green-buttress-260810/gcloud.kubernetes:alpha-v0.1
+      - image: gcr.io/green-buttress-260810/gcloud.graphql:alpha  
         imagePullPolicy: Always
         name: api-app
         resources:
@@ -66,13 +66,4 @@ spec:
   ports:
   - name:  http
     port:  80
-    targetPort:  5000
----
-# apiVersion: extensions/v1beta1
-# kind: Ingress
-# metadata:
-#   name: app-graphql-ingress
-# spec:
-#   backend:
-#     serviceName: web
-#     servicePort: 80
+    targetPort:  2000
