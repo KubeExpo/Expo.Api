@@ -4,6 +4,7 @@ namespace GCloud.GraphQL
 {
     public class WeatherForecast
     {
+        public String Version { get; set; }
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }
