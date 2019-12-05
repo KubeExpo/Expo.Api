@@ -32,20 +32,20 @@ spec:
         livenessProbe:
           httpGet:
             path: /status/healthz
-            port: 80
+            port: 3000
           initialDelaySeconds: 90
           timeoutSeconds: 10
         readinessProbe:
           httpGet:
             path: /status/healthz
-            port: 80
+            port: 3000
           initialDelaySeconds: 30
           timeoutSeconds: 10
         # env:
         # - name:  ENVVARNAME
         #   value:  ENVVARVALUE       
         ports:
-        - containerPort:  80
+        - containerPort:  3000
           name:  my-name
         # volumeMounts:
         # - mountPath: /data
