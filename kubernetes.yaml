@@ -65,5 +65,5 @@ spec:
   # type:  LoadBalancer
   ports:
   - name:  http
-    port:  80
+    port:  2000
     targetPort:  2000
