@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace GCloud.GraphQL.Controllers
+namespace Expo.Application.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,6 +1,6 @@
 using System;
 
-namespace GCloud.GraphQL
+namespace Expo.Application
 {
     public class WeatherForecast
     {

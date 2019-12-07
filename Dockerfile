@@ -1,7 +1,5 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
 WORKDIR /app
-ENV ASPNETCORE_URLS http://+:2000
-EXPOSE 2000
 
 # copy csproj and restore as distinct layers
 # COPY *.sln .

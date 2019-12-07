@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace GCloud.GraphQL
+namespace Expo.Application
 {
     public class WeatherForecastV2
     {
