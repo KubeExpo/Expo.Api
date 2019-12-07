@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Expo.Application
+namespace Expo.Api
 {
     public class WeatherForecastV2
     {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Expo.Application.Controllers
+namespace Expo.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

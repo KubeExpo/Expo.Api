@@ -1,6 +1,6 @@
 using System;
 
-namespace Expo.Application
+namespace Expo.Api
 {
     public class WeatherForecast
     {

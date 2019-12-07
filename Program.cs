@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Expo.Application
+namespace Expo.Api
 {
     public class Program
     {
