@@ -19,7 +19,7 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-      - image: gcr.io/green-buttress-260810/gcloud.graphql:alpha-v0.2
+      - image: gcr.io/green-buttress-260810/expo.api:alpha-v0.3
         imagePullPolicy: Always
         name: api-app
         resources:
