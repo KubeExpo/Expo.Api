@@ -1,0 +1,13 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://source.developers.google.com/p/green-buttress-260810/r/Expo.Api']
+- name: 'microsoft/dotnet:sdk'
+  entrypoint: dotnet
+  args: ['restore']
+- name: 'microsoft/dotnet:sdk'
+  entrypoint: dotnet
+  args: ['build']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/green-buttress-260810/expo.api:alpha-v0.4', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/green-buttress-260810/expo.api:alpha-v0.4', '.']
