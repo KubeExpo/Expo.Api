@@ -4,7 +4,7 @@ steps:
 - name: 'mcr.microsoft.com/dotnet/core/sdk:3.1'
   entrypoint: dotnet
   args: ['restore']
-- name: 'microsoft/dotnet:sdk'
+- name: 'mcr.microsoft.com/dotnet/core/sdk:3.1'
   entrypoint: dotnet
   args: ['build']
 - name: 'gcr.io/cloud-builders/docker'
