@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone', 'https://source.developers.google.com/p/green-buttress-260810/r/Expo.Api']
-- name: 'microsoft/dotnet:sdk'
+- name: 'mcr.microsoft.com/dotnet/core/sdk:3.1'
   entrypoint: dotnet
   args: ['restore']
 - name: 'microsoft/dotnet:sdk'
