@@ -28,4 +28,4 @@ help: ## This help.
 # DOCKER TASKS
 # Build the container
 build: ## Build the container
-	docker build -t $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME) .
+	docker build -t $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION) .
