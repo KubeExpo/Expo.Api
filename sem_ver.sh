@@ -56,3 +56,5 @@ git config user.email "jrc.dxc@gmail.com"
 git commit VERSION -m "${version_major}.${version_minor}.${version_patch}"
 git tag -a "${version_major}.${version_minor}.${version_patch}" -m "${version_major}.${version_minor}.${version_patch}"
 git push origin "${version_major}.${version_minor}.${version_patch}"
+
+echo "${version_major}.${version_minor}.${version_patch}"
