@@ -32,7 +32,7 @@ build: ## Build the container
 	docker build -t $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION) .
 
 push: 
-	docker push $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION) .
+	docker push $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION)
 
 publish: 
 	build push
