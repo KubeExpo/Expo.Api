@@ -50,6 +50,8 @@ fi
 printf "New version: "
 echo "${version_major}.${version_minor}.${version_patch}" | tee ${1}
 
+git config user.name "Joydeep"
+git config user.email "jrc.dxc@gmail.com"
 # Push the version tags to git
 git commit VERSION -m "${version_major}.${version_minor}.${version_patch}"
 git tag -a "${version_major}.${version_minor}.${version_patch}" -m "${version_major}.${version_minor}.${version_patch}"
