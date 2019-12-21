@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash sh
 
 # Semantic versioning details: https://semver.org/
 # Constants

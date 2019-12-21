@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 # import config.
 # You can change the default config with `make cnf="config_special.env" build`
