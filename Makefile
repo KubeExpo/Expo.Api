@@ -11,7 +11,7 @@ include $(dpl)
 export $(shell sed 's/=.*//' $(dpl))
 
 # grep the version from the mix file
-VERSION=$(shell ./version.sh)
+VERSION=$(shell ./sem_ver.sh)
 
 # HELP
 # This will output the help for each task
@@ -28,3 +28,9 @@ help: ## This help.
 # Build the container
 build: ## Build the container
 	docker build -t $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION) .
+
+push: 
+	docker push $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION) .
+
+publish: 
+	build push
