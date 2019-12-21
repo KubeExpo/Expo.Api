@@ -18,7 +18,7 @@ VERSION=$(shell ./sem_ver.sh VERSION release-patch | tail -1)
 # HELP
 # This will output the help for each task
 # thanks to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-.PHONY: help
+.PHONY: help publish build push
 
 help: ## This help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -28,11 +28,10 @@ help: ## This help.
 
 # DOCKER TASKS
 # Build the container
-build: ## Build the container
-	docker build -t $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION) .
+build: docker build -t $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION) .
 
-push: 
-	docker push $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION)
+push: docker push $(DOCKER_REPO)/$(PROJECT_ID)/$(APP_NAME):$(VERSION)
 
-publish: 
-	build push
+publish:
+	build
+	push
