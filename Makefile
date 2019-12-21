@@ -11,7 +11,7 @@ include $(dpl)
 export $(shell sed 's/=.*//' $(dpl))
 
 # grep the version from the mix file
-VERSION=$(shell ./sem_ver.sh)
+VERSION=$(shell ./sem_ver.sh VERSION release-patch)
 
 # HELP
 # This will output the help for each task
