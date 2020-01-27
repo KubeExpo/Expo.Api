@@ -35,7 +35,7 @@ namespace Expo.Api.Controllers
 
         
         [HttpGet("company/dxc")]
-        public async Task<IActionResult> GetEmployee()
+        public async Task<IActionResult> GetDXCEmployee()
         {
             client.BaseAddress = new Uri("http://dummy.restapiexample.com");
             HttpResponseMessage responseMessage = await client.GetAsync("/api/v1/employees");
