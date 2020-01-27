@@ -32,5 +32,15 @@ namespace Expo.Api.Controllers
             string responseString = await responseMessage.Content.ReadAsStringAsync();
             return Ok(responseString);
         }
+
+        
+        [HttpGet("company/dxc")]
+        public async Task<IActionResult> GetEmployee()
+        {
+            client.BaseAddress = new Uri("http://dummy.restapiexample.com");
+            HttpResponseMessage responseMessage = await client.GetAsync("/api/v1/employees");
+            string responseString = await responseMessage.Content.ReadAsStringAsync();
+            return Ok(responseString);
+        }
     }
 }
