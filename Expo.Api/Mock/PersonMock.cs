@@ -1,52 +1,12 @@
 using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using EF = Expo.Api.EF;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Bogus;
 using static Bogus.DataSets.Name;
 
-namespace Expo.Api.Controllers
+namespace Expo.Api.Mock
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class FakeApiController : ControllerBase
+    public class PersonMock
     {
-        HttpClient client;
-        private readonly EF.ExpoDBContext context;
-        public FakeApiController(EF.ExpoDBContext context)
-        {
-            this.context = context;
-            client = new HttpClient();
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            client.BaseAddress = new Uri("https://randomuser.me");
-            HttpResponseMessage responseMessage = await client.GetAsync("/api/?results=1");
-            string responseString = await responseMessage.Content.ReadAsStringAsync();
-
-            string token = JObject.Parse(responseString).SelectToken("results").First.ToString();
-            EF.Person person = JsonConvert.DeserializeObject<EF.Person>(token);
-            // await this.context.Person.AddAsync(person);
-            // await context.SaveChangesAsync();
-            return Ok(person);
-        }
-
-        [HttpGet("company/employee")]
-        public async Task<IActionResult> GetEmployee()
-        {
-            client.BaseAddress = new Uri("http://dummy.restapiexample.com");
-            HttpResponseMessage responseMessage = await client.GetAsync("/api/v1/employees");
-            string responseString = await responseMessage.Content.ReadAsStringAsync();
-            return Ok(responseString);
-        }
-
-        [HttpGet("company/dxc")]
-        public async Task<IActionResult> GetDXCEmployee()
+        public static EF.Person People()
         {
             var testUsers = new Faker<EF.Person>()
                 //Optional: Call for objects that have complex initialization
@@ -110,10 +70,7 @@ namespace Expo.Api.Controllers
                     });
 
             EF.Person person = testUsers.Generate();
-
-            await this.context.Person.AddAsync(person);
-            await context.SaveChangesAsync();
-            return Ok(person);
+            return person;
         }
     }
 }
