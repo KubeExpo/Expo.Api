@@ -1,3 +1,4 @@
+using Expo.Api.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,8 +22,9 @@ namespace Expo.Api
         {
             services.AddControllers();
 
-            services.AddDbContext<ExpoEntityContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+            //pomelo provider
+            services.AddDbContext<ExpoDBContext>(options =>
+               options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
