@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Expo.Api.Messaging;
 using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace Expo.Api.Controllers
 {
@@ -11,10 +12,13 @@ namespace Expo.Api.Controllers
     public class TrackController : ControllerBase
     {
         private readonly ILogger<TrackController> logger;
+        private readonly ExpoEntityContext context;
 
-        public TrackController(ILogger<TrackController> logger)
+        public TrackController(ILogger<TrackController> logger,
+        ExpoEntityContext context)
         {
             this.logger = logger;
+            this.context = context;
         }
 
         // GET api/track
@@ -33,13 +37,21 @@ namespace Expo.Api.Controllers
 
         // POST api/track
         [HttpPost("")]
-        public IActionResult Post(string message)
+        public async Task<IActionResult> Post(string message)
         {
-            logger.LogInformation(message);
-            TopicHelper helper = new TopicHelper();
-            Console.WriteLine("Hello");
-            helper.SendMessage(message);
-            return Ok();
+            // logger.LogInformation(message);
+            // TopicHelper helper = new TopicHelper();
+            // Console.WriteLine("Hello");
+            // helper.SendMessage(message);
+            Test test = new Test
+            {
+                FirstName = "Joy",
+                LastName = "Roy",
+                BirthDate = DateTime.Parse("1985/11/26")
+            };
+            context.Add(test);
+            await context.SaveChangesAsync();
+            return Ok(test);
         }
 
         // PUT api/track/5
